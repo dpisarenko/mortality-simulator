@@ -1,7 +1,7 @@
 <configuration>
 	<appender name="FILE"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>ccp-beanshell-client.log</file>
+		<file>sample-app.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- daily rollover -->
 			<fileNamePattern>sample-app-%d{yyyy-MM-dd}.log</fileNamePattern>

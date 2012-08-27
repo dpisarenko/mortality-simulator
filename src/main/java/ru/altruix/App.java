@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -105,7 +106,7 @@ public class App {
     private long parseLongQuietly(final String aIdAsString) {
         long id = -1;
         try {
-            id = Long.parseLong(aIdAsString);
+            id = Long.parseLong(StringUtils.trim(aIdAsString));
         } catch (final NumberFormatException exception) {
             LOGGER.error("Cannot parse long value '{}'", aIdAsString);
         }
@@ -154,7 +155,7 @@ public class App {
     private double parseDoubleQuietly(final String aDoubleValueAsString) {
         double age = -1;
         try {
-            age = Double.parseDouble(aDoubleValueAsString);
+            age = Double.parseDouble(StringUtils.trim(aDoubleValueAsString));
         } catch (final NumberFormatException exception) {
             LOGGER.error("Cannot parse integer value '{}'",
                     aDoubleValueAsString);
