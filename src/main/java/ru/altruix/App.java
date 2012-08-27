@@ -26,7 +26,7 @@ public class App {
         final Map<Integer, Double> deathRatesByAge =
                 readDeathRates("death-rates.csv");
 
-        final List<Human> people = readPeople("population.csv");
+        final List<Human> people = readPeople("artyom-1000-people.csv");
 
         final DeathProbabilityCalculator calculator =
                 new DeathProbabilityCalculator();
@@ -96,7 +96,7 @@ public class App {
     private int parseIntQuietly(final String aAgeAsString) {
         int age = -1;
         try {
-            age = Integer.parseInt(aAgeAsString);
+            age = Integer.parseInt(StringUtils.trim(aAgeAsString));
         } catch (final NumberFormatException exception) {
             LOGGER.error("Cannot parse integer value '{}'", aAgeAsString);
         }
