@@ -177,4 +177,8 @@ public class App {
 
         app.run();
     }
+
+    public int getDeaths() {
+        return deaths;
+    }
 }

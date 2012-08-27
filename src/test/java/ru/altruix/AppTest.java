@@ -17,6 +17,8 @@ public class AppTest {
             final App app = new App();
 
             app.run();
+            
+            Assert.assertTrue(app.getDeaths() > 0);
         } catch (final Throwable throwable) {
             LOGGER.error("", throwable);
             Assert.fail(throwable.getMessage());
