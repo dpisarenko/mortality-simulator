@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
  */
 public class App {
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
+    private int deaths;
 
     public void run() {
         LOGGER.info("Sample application");
@@ -34,6 +35,8 @@ public class App {
         calculator.setDeathRatesByAge(deathRatesByAge);
         calculator.init();
 
+        deaths = 0;
+
         for (final Human curPerson : people) {
             final double experiment = Math.random();
 
@@ -44,6 +47,8 @@ public class App {
             boolean death;
             if ((range[0] >= experiment) && (experiment <= range[1])) {
                 death = true;
+
+                deaths++;
             } else {
                 death = false;
             }
@@ -51,6 +56,9 @@ public class App {
             LOGGER.debug("Age: {}, death: {}",
                     new Object[] { curPerson.getAge(), death });
         }
+
+        LOGGER.debug("Total number of deaths per {} of population: {}",
+                new Object[] { people.size(), deaths });
     }
 
     private List<Human> readPeople(final String aPath) {
